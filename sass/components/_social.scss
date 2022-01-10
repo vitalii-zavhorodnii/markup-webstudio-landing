@@ -1,0 +1,43 @@
+.social {
+  @include centered-flex();
+}
+
+.social__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.social__link {
+  @include centered-flex();
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: $border-color;
+  transition: color $timing $function, background-color $timing $function;
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-white-color;
+    background-color: $accent-color;
+  }
+}
+
+.social__icon {
+  fill: currentColor;
+  transition: fill $timing $function;
+
+  &:hover {
+    fill: $primary-bg-white-color;
+  }
+}
+
+.social__link--color-reverse {
+  color: $primary-bg-white-color;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: color $timing $function, background-color $timing $function;
+
+  &:hover,
+  &:focus {
+    color: $primary-bg-white-color;
+    background-color: $accent-color;
+  }
+}

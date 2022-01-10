@@ -1,0 +1,71 @@
+.site-nav {
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    @include centered-flex($justify: flex-start);
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include centered-flex();
+  }
+}
+
+.site-nav__list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-left: 88px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 93px;
+  }
+}
+
+.site-nav__item:not(:last-child) {
+  @media screen and (min-width: 768px) {
+    margin-right: 50px;
+  }
+}
+
+.site-nav__link {
+  @extend %link;
+  display: block;
+  transition: color $timing $function;
+
+  &.current {
+    color: $accent-color;
+  }
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    @include font($semibold, null, null, 0.02em);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    color: $nav-text-color;
+
+    &.current {
+      position: relative;
+    }
+
+    &.current::after {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+
+      content: '';
+      width: 100%;
+      height: 4px;
+
+      background-color: $accent-color;
+      border-radius: 2px;
+    }
+  }
+}

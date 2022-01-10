@@ -1,0 +1,22 @@
+.logo {
+  @extend %link;
+  font-family: $font-family-logo;
+  @include font($bold, 24px, 1.17);
+  color: $accent-color;
+
+  &--color-dark {
+    color: $nav-text-color;
+  }
+
+  &--color-light {
+    color: $primary-bg-white-color;
+  }
+
+  &--header {
+    padding: 16px 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include font($bold, 26px, 1.19);
+  }
+}

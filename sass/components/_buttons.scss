@@ -1,0 +1,18 @@
+.btn {
+  min-width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+
+  @include font($bold, 16px, 1.87, 0.06em);
+  color: $primary-bg-white-color;
+  background-color: $accent-color;
+  transition: box-shadow $timing $function, background-color $timing $function;
+
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $accent-color-hovered;
+  }
+}

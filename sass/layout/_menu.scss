@@ -1,0 +1,100 @@
+.mobile-menu__toggle {
+  padding: 0;
+  border: none;
+  color: $secondary-text-color;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile-menu__menu-icon {
+  fill: currentColor;
+}
+
+.mobile-menu__close-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  fill: currentColor;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  transform: translateX(-100%);
+  transition: transform $timing $function;
+
+  display: flex;
+  flex-direction: column;
+  padding: 48px 40px;
+  background-color: $primary-bg-white-color;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.mobile-menu__list {
+  display: block;
+}
+
+.mobile-menu__item {
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+.mobile-menu__link {
+  @include font($semibold, 40px, 1.17, 0.02em);
+  color: $secondary-text-color;
+}
+
+.mobile-menu__link[href^='tel'] {
+  @include font(null, 34px, 1.18, 0.02em);
+  font-size: 7.08vw;
+  color: $accent-color;
+}
+
+.mobile-menu__link[href^='mailto'] {
+  @include font(null, 24px, 1.17, 0.02em);
+  color: $primary-text-color;
+}
+
+.mobile-menu__bottom {
+  margin-top: auto;
+}
+
+.mobile-social {
+  @include centered-flex($justify: flex-start);
+  flex-wrap: wrap;
+  margin-top: 64px;
+}
+
+.mobile-social__link {
+  @extend %link;
+  @include font($semibold, 18px, 1.22, 0.02em);
+  color: $accent-color;
+}
+
+.mobile-social__item:not(:last-child)::after {
+  content: '';
+  width: 22px;
+  height: 1px;
+  margin-left: 10px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+}

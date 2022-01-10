@@ -1,0 +1,216 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 93px 15px;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity $timing $function, visibility $timing $function;
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: relative;
+  min-height: 609px;
+  padding: 40px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: $primary-bg-white-color;
+  transition: box-shadow $timing $function;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 450px;
+    width: 100%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform $timing $function;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 528px;
+    min-height: 581px;
+  }
+}
+
+.backdrop.is-hidden .modal {
+  transform: scale(0.9);
+  @media screen and (min-width: 768px) {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.modal__btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  @include centered-flex();
+
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  color: $nav-text-color;
+  background-color: $primary-bg-white-color;
+  transition: color $timing $function;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.modal__icon {
+  fill: currentColor;
+}
+
+.modal__title {
+  @extend %title;
+  margin-bottom: 12px;
+
+  @include font(null, 20px, 1.5);
+  text-align: center;
+
+  @media screen and (min-width: 1200px) {
+    @include font(null, null, 1.15);
+  }
+}
+
+.form {
+  text-align: center;
+}
+
+.form__field {
+  display: block;
+  margin-bottom: 10px;
+
+  &:nth-of-type(4) {
+    margin-bottom: 20px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 4px;
+
+  @include font(null, 12px, 1.17, 0.01em);
+  text-align: left;
+  color: $primary-text-color;
+}
+
+.form__field:focus-within > .form__label {
+  @media screen and (max-width: 767px) {
+    color: $accent-color;
+  }
+}
+.form__wrap {
+  position: relative;
+}
+
+.form__input {
+  width: 100%;
+  height: 40px;
+  padding-right: 16px;
+  padding-left: 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  background-color: transparent;
+  transition: border-color $timing $function;
+
+  &:focus {
+    border-color: $accent-color;
+    outline: none;
+  }
+}
+
+.form__icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: $secondary-text-color;
+}
+
+.form__input:focus + .form__icon {
+  fill: $accent-color;
+  transition: fill $timing $function;
+}
+
+.form__textarea {
+  resize: none;
+  display: block;
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border $timing $function;
+
+  &:focus {
+    border-color: $accent-color;
+    outline: none;
+  }
+  &::placeholder {
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.form__check-icon {
+  display: inline-block;
+  margin-right: 7px;
+  border: 2px solid #2a2a2a;
+  border-radius: 2px;
+  transition: border-color $timing $function, background-color $timing $function;
+}
+
+.form__field:focus-within .form__check-icon {
+  border-color: $accent-color;
+}
+
+.form__checkbox:checked + .form__check-icon {
+  background-color: $accent-color;
+  background-origin: border-box;
+  border: none;
+}
+
+.form__text {
+  @include font(null, 12px, 1.17);
+  color: $primary-text-color;
+
+  @media screen and (max-width: 479px) {
+    font-size: 2.5vw;
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include font(null, 14px, 1.71);
+  }
+}
+
+.form__link {
+  text-decoration-skip-ink: none;
+  color: $accent-color;
+}
+
+.form__btn {
+  display: block;
+  margin: 0 auto;
+}

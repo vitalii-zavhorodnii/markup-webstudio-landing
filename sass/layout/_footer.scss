@@ -1,0 +1,96 @@
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $footer-bg-color;
+}
+
+.footer__container {
+  @media screen and (min-width: 768px) {
+    @include centered-flex($align: baseline);
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  @media screen and (max-width: 1199px) {
+    justify-content: space-around;
+    text-align: center;
+  }
+}
+
+.footer__contacts {
+  color: $primary-bg-white-color;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 70px;
+  }
+}
+
+.footer__logo {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.address {
+  @media screen and (min-width: 767px) and (max-width: 1199px) {
+    line-height: 1.71;
+  }
+}
+
+.address__link {
+  @extend %link;
+  display: block;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 9px;
+  }
+}
+
+.footer-contacts__item:not(:last-child) {
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 9px;
+  }
+}
+
+.footer-contacts__link {
+  @extend %link;
+  line-height: 1.71;
+  color: $contacts-text-color;
+  transition: color $timing $function;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.footer__social {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: auto;
+  }
+}
+
+.footer__text {
+  margin-bottom: 20px;
+  font-weight: $bold;
+  text-transform: uppercase;
+  color: $primary-bg-white-color;
+}
+
+.footer__subscription {
+  @media screen and (min-width: 767px) and (max-width: 1199px) {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 60px;
+  }
+}

@@ -1,0 +1,32 @@
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &--another-bg-color {
+    background-color: $secondary-bg-color;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
+.section--no-top-padding {
+  padding-top: 0;
+
+  @media screen and (max-width: 1199px) {
+    display: none;
+  }
+}
+
+.section__title {
+  @extend %title;
+  margin-bottom: 30px;
+  @include font($bold, 28px, 1.18);
+  text-align: center;
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 50px;
+    @include font($bold, 36px, 1.17);
+  }
+}

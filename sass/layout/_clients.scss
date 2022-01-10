@@ -1,0 +1,49 @@
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+}
+
+.clients__item {
+  flex-basis: calc(100% / 2 - #{$card-gap});
+  margin: 15px;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc(100% / 3 - #{$card-gap});
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc(100% / 6 - #{$card-gap});
+  }
+}
+
+.clients__link {
+  @include centered-flex();
+  height: 92px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  color: $border-color;
+  transition: color $timing $function, border-color $timing $function;
+
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    color: $accent-color;
+  }
+
+  @media screen and (max-width: 767px) {
+    max-width: 210px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 226px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 170px;
+  }
+}
+
+.clients__icon {
+  fill: currentColor;
+}
